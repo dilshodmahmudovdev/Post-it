@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto";
+}
+.auth-input{
+    width: 100%;
+    height: auto;
+    padding: 9px 14px;
+    border: 1px solid #D4D7E3;
+    border-radius: 22px;
+    font-size: 16px;
+    background: #F7FBFF;
+}
+.auth-input:focus{
+    outline: 1px solid #3d8ede;
+    border-color: transparent;
+    background: transparent;
+ }
+.auth-label{
+    margin-top: 12px;
+    margin-left: 5px;
+}
+.border-line{
+    border-top: 1px solid #babdc7;
+}
+.auth-btn{
+    color: #ffffff;
+    background: #3d8ede;
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    border-radius: 22px;
+    border: none;
+}
+.google-btn{
+    color: #636b6f;
+    background: #ffffff;
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    border-radius: 23px;
+    border: 1px solid #D4D7E3;
+    font-size: 15px;
+}
+.google-btn svg{
+    width: 22px;
+    margin-right: 5px;
+}
+.small-text{
+    font-size: 13px;
+}
+.error-list{
+    margin-left: 15px;
+    font-size: 13px;
+}
+.error-text{
+    font-size: 13px;
+}
