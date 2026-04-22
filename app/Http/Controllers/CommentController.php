@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Comment;
 use App\Http\Requests\CreateCommentRequest;
 use App\Post;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class CommentController extends Controller
@@ -25,11 +27,25 @@ class CommentController extends Controller
         return view('pages.comments.index', compact('post'));
     }
 
-    public function edit()
-    {}
+    public function edit($id)
+    {
+        $comment = Comment::findOrFail($id);
 
-    public function update()
-    {}
+        return view('pages.comments.edit', compact('comment'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $comment = Comment::findOrFail($id);
+
+        $data = $request->validate([
+            'body' => 'required|min:3'
+        ]);
+
+        $comment->update($data);
+
+        return redirect()->route('posts.comments', $comment->post_id);
+    }
 
     public function destroy($id)
     {

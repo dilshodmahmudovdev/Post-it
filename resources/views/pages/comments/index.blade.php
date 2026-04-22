@@ -12,7 +12,7 @@
                     <div class="comments-image">
                         <img src="{{ asset('storage/'. $post->img_url) }}" alt="">
                     </div>
-                    <div class="w-50 comment-text">
+                    <div class="w-50 comment-text bg-light border">
                         <h6 class="hidden-title">{{ $post->title }}</h6>
                         <div class="my-border-top"></div>
                         <p class="hidden-body">{{ $post->body }}</p>
@@ -21,25 +21,28 @@
 
                 <form action="{{ route('comments.store', $post) }}"
                       method="POST"
-                      class="px-3 py-2 bg-light rounded-2 mb-2 mt-3 my-border"
+                      class="px-3 py-2 mb-2 mt-3"
                 >
                     @csrf
-                    <label for="comment">
+                    <label for="comment" class="fw-semibold">
                         Izoh yozish:
                     </label>
+                    <div class="my-border-top mt-1"></div>
 
                     @error('body')
                     <div class="alert alert-danger p-2 mt-2">
                         {{ $message }}
                     </div>
                     @enderror
-                    <input type="text" class="comment-input mt-2" name="body" value="{{ old('body') }}">
 
-                    <div class="text-end mt-1">
-                        <button class="send-btn">
+                    <div class="d-flex gap-2 mt-3 align-items-end">
+                        <textarea class="comment-input" name="body" rows="1"
+                        >{{ old('body') }}</textarea>
+                        <button class="send-btn d-flex gap-2">
                             Yuborish <i class="bi bi-send-fill"></i>
                         </button>
                     </div>
+                    <div class="my-border-top mt-3"></div>
                 </form>
 
                 @if($post->comments->count() > 0)
@@ -47,10 +50,20 @@
                         <h5 class="text-center mb-3">Post Izohlari</h5>
                         @foreach($post->comments as $comment)
                             <div class="comment border-top">
-                                <div class="comment-profile">
-                                    <i class="bi bi-person-circle"></i>
-                                    <a href="{{ route('profiles', $comment->user->id) }}" class="comment-link">{{ $comment->user->email }}</a>
-                                    <x-timeAgo :timestamp="$comment->time_ago"/>
+                                <div class="d-flex justify-content-between">
+                                    <div class="comment-profile">
+                                        <i class="bi bi-person-circle"></i>
+                                        <a href="{{ route('profiles', $comment->user->id) }}" class="comment-link">{{ $comment->user->email }}</a>
+                                        <x-timeAgo :timestamp="$comment->time_ago"/>
+                                    </div>
+
+                                    @if($comment->user->id === Auth::id())
+                                        <div class="d-flex align-items-center gap-1">
+                                            <a href="{{route('comments.edit', $comment->id)}}" class="d-inline-block text-dark px-1 border border-dark rounded-1">
+                                                <i class="bi bi-pencil"></i>
+                                            </a>
+                                        </div>
+                                    @endif
                                 </div>
                                 <p class="comment-body">{{ $comment->body }}</p>
                             </div>
