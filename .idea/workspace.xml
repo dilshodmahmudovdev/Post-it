@@ -13,9 +13,6 @@
     <list default="true" id="a3c4b0bf-3c38-4778-855e-ae8b1612a19d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CommentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CommentController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/components.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/components.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/card.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/card.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/pages/comments/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/comments/edit.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/pages/comments/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/comments/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
@@ -297,7 +294,8 @@
       <workItem from="1776768893675" duration="226000" />
       <workItem from="1776773026829" duration="595000" />
       <workItem from="1776795029758" duration="3606000" />
-      <workItem from="1776827953460" duration="633000" />
+      <workItem from="1776827953460" duration="1169000" />
+      <workItem from="1776830508168" duration="3502000" />
     </task>
     <servers />
   </component>

@@ -27,16 +27,15 @@ class CommentController extends Controller
         return view('pages.comments.index', compact('post'));
     }
 
-    public function edit($id)
+    public function edit(Comment $comment)
     {
-        $comment = Comment::findOrFail($id);
+        $this->authorize('update', $comment);
 
         return view('pages.comments.edit', compact('comment'));
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, Comment $comment)
     {
-        $comment = Comment::findOrFail($id);
 
         $data = $request->validate([
             'body' => 'required|min:3'

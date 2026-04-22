@@ -2,7 +2,7 @@
 @section('title', 'Tahrirlash')
 @section('content')
     <div class="rounded-3 bg-white p-2 border my-shadow">
-        <form action="{{ route('comments.update', $comment->id) }}"
+        <form action="{{ route('comments.update', $comment) }}"
               method="POST"
               class="px-3 py-2 mb-2 mt-3"
         >

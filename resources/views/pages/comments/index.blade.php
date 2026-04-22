@@ -53,17 +53,17 @@
                                 <div class="d-flex justify-content-between">
                                     <div class="comment-profile">
                                         <i class="bi bi-person-circle"></i>
-                                        <a href="{{ route('profiles', $comment->user->id) }}" class="comment-link">{{ $comment->user->email }}</a>
+                                        <a href="{{ route('profiles', $comment->user_id) }}" class="comment-link">{{ $comment->user->email }}</a>
                                         <x-timeAgo :timestamp="$comment->time_ago"/>
                                     </div>
 
-                                    @if($comment->user->id === Auth::id())
+                                    @can('update', $comment)
                                         <div class="d-flex align-items-center gap-1">
-                                            <a href="{{route('comments.edit', $comment->id)}}" class="d-inline-block text-dark px-1 border border-dark rounded-1">
+                                            <a href="{{route('comments.edit', $comment)}}" class="d-inline-block text-dark px-1 border border-dark rounded-1">
                                                 <i class="bi bi-pencil"></i>
                                             </a>
                                         </div>
-                                    @endif
+                                    @endcan
                                 </div>
                                 <p class="comment-body">{{ $comment->body }}</p>
                             </div>

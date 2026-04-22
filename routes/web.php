@@ -28,8 +28,8 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('posts', 'PostController');
     Route::get('/posts/{post}/comments', 'CommentController@showPostComments')->name('posts.comments');
     Route::post('/posts/{post}/comments', 'CommentController@store')->name('comments.store');
-    Route::get('/comments/{id}/edit', 'CommentController@edit')->name('comments.edit');
-    Route::put('/comments/{id}/edit', 'CommentController@update')->name('comments.update');
+    Route::get('/comments/{comment}/edit', 'CommentController@edit')->name('comments.edit');
+    Route::put('/comments/{comment}/edit', 'CommentController@update')->name('comments.update');
     Route::post('posts/{post}/like', 'PostController@toggleLike')->name('posts.like');
 });
 
