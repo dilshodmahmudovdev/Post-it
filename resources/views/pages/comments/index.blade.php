@@ -19,7 +19,7 @@
                     </div>
                 </div>
 
-                <form action="{{ route('comments.store', $post) }}"
+                <form action="{{ route('posts.comments.store', $post) }}"
                       method="POST"
                       class="px-3 py-2 mb-2 mt-3"
                 >
@@ -62,7 +62,7 @@
                                             <a href="{{route('comments.edit', $comment)}}" class="d-inline-block text-dark px-1 border border-dark rounded-1">
                                                 <i class="bi bi-pencil"></i>
                                             </a>
-                                            <form action="{{ route('comments.delete', $comment) }}" class="d-inline-block" method="POST">
+                                            <form action="{{ route('comments.destroy', $comment) }}" class="d-inline-block" method="POST">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button class="d-inline-block text-dark px-1 border border-dark rounded-1 bg-transparent">

@@ -10,6 +10,13 @@ use Illuminate\Support\Facades\Auth;
 
 class CommentController extends Controller
 {
+    public function index(Post $post)
+    {
+        $post->load('comments.user');
+
+        return view('pages.comments.index', compact('post'));
+    }
+
     public function store(CreateCommentRequest $request, Post  $post)
     {
         $post->comments()->create([
@@ -18,13 +25,6 @@ class CommentController extends Controller
         ]);
 
         return back();
-    }
-
-    public function showPostComments(Post $post)
-    {
-        $post->load('comments.user');
-
-        return view('pages.comments.index', compact('post'));
     }
 
     public function edit(Comment $comment)
@@ -43,7 +43,7 @@ class CommentController extends Controller
 
         $comment->update($data);
 
-        return redirect()->route('posts.comments', $comment->post_id);
+        return redirect()->route('posts.comments.index', $comment->post_id);
     }
 
     public function destroy(Comment $comment)
@@ -54,6 +54,6 @@ class CommentController extends Controller
 
         $comment->delete();
 
-        return redirect()->route('posts.comments', $post);
+        return redirect()->route('posts.comments.index', $post);
     }
 }

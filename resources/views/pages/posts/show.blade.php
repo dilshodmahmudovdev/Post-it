@@ -20,7 +20,7 @@
                             </button>
                         </form>
 
-                        <a href="{{ route('posts.comments', $post->id) }}" class="comments-btn">
+                        <a href="{{ route('posts.comments.index', $post) }}" target="_blank" class="comments-btn">
                             <i class="bi bi-chat"></i>
                             <small class="mx-1">
                                 @if(!$post->comments || count($post->comments) === 0)

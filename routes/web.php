@@ -1,50 +1,68 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-//use App\Http\Controllers\PostController;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\CommentController;
 
 /*
 |--------------------------------------------------------------------------
-| Web Routes
+| PUBLIC ROUTES
 |--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
 */
 
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::middleware(['auth'])->group(function () {
-
-    Route::get('/notifications', function () {
-        return view('pages.notifications.index');})->name('notifications');
-
-    Route::get('/profile', 'ProfileController@index')->name('profile');
-
-    Route::get('/settings', function () {
-        return view('pages.settings.index');})->name('settings');
-
-    Route::resource('posts', 'PostController');
-    Route::get('/posts/{post}/comments', 'CommentController@showPostComments')->name('posts.comments');
-    Route::post('/posts/{post}/comments', 'CommentController@store')->name('comments.store');
-    Route::get('/comments/{comment}/edit', 'CommentController@edit')->name('comments.edit');
-    Route::put('/comments/{comment}/edit', 'CommentController@update')->name('comments.update');
-    Route::delete('/comments/{comment}', 'CommentController@destroy')->name('comments.delete');
-    Route::post('posts/{post}/like', 'PostController@toggleLike')->name('posts.like');
-});
-
-Route::get('/', 'HomeController@index')->name('home');
-Route::get('/profiles/{id}', function ($id){
+Route::get('/profiles/{id}', function ($id) {
     return "bu sahifa mamnashu profilniki: " . $id;
 })->name('profiles');
-Route::get('/register', function () {
-    return view('auth.register');
-})->name('register');
-Route::get('/login', function () {
-    return view('auth.login');
-})->name('login');
 
-Route::post('/register', 'AuthController@register')->name('register.posts');
-Route::post('/login', 'AuthController@login')->name('login.posts');
-Route::post('/logout', 'AuthController@logout')->name('logout');
+/*
+|--------------------------------------------------------------------------
+| GUEST AUTH ROUTES
+|--------------------------------------------------------------------------
+*/
+
+Route::middleware('guest')->group(function () {
+
+    Route::get('/register', function () {
+        return view('auth.register');
+    })->name('register');
+
+    Route::get('/login', function () {
+        return view('auth.login');
+    })->name('login');
+
+    Route::post('/register', [AuthController::class, 'register'])->name('register.posts');
+    Route::post('/login', [AuthController::class, 'login'])->name('login.posts');
+});
+
+/*
+|--------------------------------------------------------------------------
+| AUTH ROUTES
+|--------------------------------------------------------------------------
+*/
+
+Route::middleware('auth')->group(function () {
+
+    Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
+
+    Route::get('/notifications', function () {
+        return view('pages.notifications.index');
+    })->name('notifications');
+
+    Route::get('/settings', function () {
+        return view('pages.settings.index');
+    })->name('settings');
+
+    Route::resource('posts', PostController::class);
+
+    Route::post('posts/{post}/like', [PostController::class, 'toggleLike'])
+        ->name('posts.like');
+
+    Route::resource('posts.comments', CommentController::class)->shallow();
+
+    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+});
