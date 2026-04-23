@@ -62,6 +62,13 @@
                                             <a href="{{route('comments.edit', $comment)}}" class="d-inline-block text-dark px-1 border border-dark rounded-1">
                                                 <i class="bi bi-pencil"></i>
                                             </a>
+                                            <form action="{{ route('comments.delete', $comment) }}" class="d-inline-block" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button class="d-inline-block text-dark px-1 border border-dark rounded-1 bg-transparent">
+                                                    <i class="bi bi-trash"></i>
+                                                </button>
+                                            </form>
                                         </div>
                                     @endcan
                                 </div>

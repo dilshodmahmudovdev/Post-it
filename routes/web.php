@@ -30,6 +30,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/posts/{post}/comments', 'CommentController@store')->name('comments.store');
     Route::get('/comments/{comment}/edit', 'CommentController@edit')->name('comments.edit');
     Route::put('/comments/{comment}/edit', 'CommentController@update')->name('comments.update');
+    Route::delete('/comments/{comment}', 'CommentController@destroy')->name('comments.delete');
     Route::post('posts/{post}/like', 'PostController@toggleLike')->name('posts.like');
 });
 
