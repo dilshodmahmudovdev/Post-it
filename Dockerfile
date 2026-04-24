@@ -13,4 +13,4 @@ COPY . .
 
 RUN composer install --no-dev --optimize-autoloader
 
-CMD php -S 0.0.0.0:$PORT -t public
+CMD php -S 0.0.0.0:8080 -t public
