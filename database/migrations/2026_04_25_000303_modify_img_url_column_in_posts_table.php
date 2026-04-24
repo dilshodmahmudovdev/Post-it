@@ -14,7 +14,7 @@ class ModifyImgUrlColumnInPostsTable extends Migration
     public function up()
     {
         Schema::table('posts', function (Blueprint $table) {
-            $table->string('img_url')->nullable()->change();
+            $table->string('img_url')->nullable();
         });
     }
 
@@ -26,7 +26,7 @@ class ModifyImgUrlColumnInPostsTable extends Migration
     public function down()
     {
         Schema::table('posts', function (Blueprint $table) {
-            $table->text('img_url')->nullable(false)->change();
+            $table->text('img_url')->nullable(false);
         });
     }
 }
