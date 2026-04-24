@@ -57,20 +57,26 @@
                                         <x-timeAgo :timestamp="$comment->time_ago"/>
                                     </div>
 
-                                    @can('update', $comment)
+                                    @canany(['update', 'delete'], $comment)
                                         <div class="d-flex align-items-center gap-1">
-                                            <a href="{{route('comments.edit', $comment)}}" class="d-inline-block text-dark px-1 border border-dark rounded-1">
-                                                <i class="bi bi-pencil"></i>
-                                            </a>
-                                            <form action="{{ route('comments.destroy', $comment) }}" class="d-inline-block" method="POST">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button class="d-inline-block text-dark px-1 border border-dark rounded-1 bg-transparent">
-                                                    <i class="bi bi-trash"></i>
-                                                </button>
-                                            </form>
+                                            @can('update', $comment)
+                                                <a href="{{route('comments.edit', $comment)}}" class="d-inline-block text-dark px-1 border border-dark rounded-1">
+                                                    <i class="bi bi-pencil"></i>
+                                                </a>
+                                            @endcan
+
+                                            @can('delete', $comment)
+                                                <form action="{{ route('comments.destroy', $comment) }}" class="d-inline-block" method="POST">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button class="d-inline-block text-dark px-1 border border-dark rounded-1 bg-transparent">
+                                                        <i class="bi bi-trash"></i>
+                                                    </button>
+                                                </form>
+                                            @endcan
                                         </div>
                                     @endcan
+
                                 </div>
                                 <p class="comment-body">{{ $comment->body }}</p>
                             </div>
