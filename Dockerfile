@@ -13,4 +13,7 @@ COPY . .
 
 RUN composer install --no-dev --optimize-autoloader
 
-CMD php -S 0.0.0.0:8080 -t public
+
+RUN php artisan storage:link || true
+
+CMD php artisan serve --host=0.0.0.0 --port=$PORT
