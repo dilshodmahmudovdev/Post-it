@@ -1,4 +1,4 @@
-<div class="my-shadow rounded-3 bg-white p-3 pt-2 mb-3">
+<div class="my-shadow rounded-3 bg-white p-3 pt-2 mb-3 border">
     <div class="d-flex justify-content-between">
         <a href="{{ route('posts.create') }}" class="d-flex align-items-center text-decoration-none">
             <div class="profile-image text-secondary fs-2 rounded-5">

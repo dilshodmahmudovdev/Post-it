@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('title', 'Post yaratish')
 @section('content')
-    <div class="px-1">
+    <div class="p-0">
         <form
             action="{{ route('posts.store') }}"
             method="POST" enctype="multipart/form-data"

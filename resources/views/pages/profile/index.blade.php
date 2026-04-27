@@ -14,11 +14,11 @@
 
     <div class="profile-data px-3">
         <h5 class="full-name">
-            Dilshod Mahmudov
+            {{ $user->full_name }}
         </h5>
 
         <p class="email">
-            dilshod@gmail.com
+            {{ $user->email }}
         </p>
 
         <p class="description-btn">
@@ -39,9 +39,11 @@
     <div class="px-2 mt-0">
         <div class="container-fluid">
             <div class="row">
-                @foreach($posts as $post)
+                @forelse($posts as $post)
                     <x-profileCard :post="$post" :isOwner="true"/>
-                @endforeach
+                @empty
+                    <h5 class="mt-3 text-center">Sizda hali Postlar yo'q</h5>
+                @endforelse
             </div>
         </div>
         <div class="d-flex justify-content-center mt-3">
