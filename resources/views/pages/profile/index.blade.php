@@ -3,13 +3,24 @@
 @section('content')
 
 <div class="profile-page bg-white my-shadow border mb-5">
-    <div class="header">
-        <img src="https://thumbs.dreamstime.com/b/your-profile-text-office-desk-computer-technology-high-note-pad-electronic-devices-paper-wood-table-above-85616599.jpg" alt="">
-    </div>
-
-    <div class="d-flex justify-content-end">
-        <a href="#" class="avatar d-flex justify-content-center align-items-center">
+    @if($user->cover_photo_path)
+        <a href="{{ asset('storage/' . $user->cover_photo_path) }}" target="_blank" class="header">
+            <img src="{{ asset('storage/' . $user->cover_photo_path) }}" alt="Muqova rasmi">
         </a>
+    @else
+        <div class="header"></div>
+    @endif
+
+    <div class="avatar-out d-flex justify-content-end">
+        @if($user->profile_photo_path)
+            <a href="{{ asset('storage/' . $user->profile_photo_path) }}" target="_blank" class="avatar d-flex align-items-center justify-content-center">
+                <img src="{{ asset('storage/' . $user->profile_photo_path) }}" alt="Profil rasmi">
+            </a>
+        @else
+            <div class="avatar border-secondary d-flex align-items-center justify-content-center">
+                <i class="bi bi-person-fill"></i>
+            </div>
+        @endif
     </div>
 
     <div class="profile-data px-3">
@@ -21,9 +32,19 @@
             {{ $user->email }}
         </p>
 
-        <p class="description-btn">
-            Boshqa ma'lumotlar <i class="bi bi-chevron-right"></i>
-        </p>
+        @if($user->bio)
+
+            <div class="dropdown mb-3">
+                <div class="description-btn" data-bs-toggle="dropdown" aria-expanded="false">
+                    Bio<i class="bi bi-chevron-right"></i>
+                </div>
+                <div class="dropdown-menu bg-light bg-white shadow p-2 w-50">
+                    <small>
+                        {{ $user->bio }}
+                    </small>
+                </div>
+            </div>
+        @endif
 
     </div>
 
@@ -42,7 +63,9 @@
                 @forelse($posts as $post)
                     <x-profileCard :post="$post" :isOwner="true"/>
                 @empty
-                    <h5 class="mt-3 text-center">Sizda hali Postlar yo'q</h5>
+                        <p class="mt-3 text-center fw-semibold text-muted">
+                            ( Hozircha postlar mavjud emas. )
+                        </p>
                 @endforelse
             </div>
         </div>

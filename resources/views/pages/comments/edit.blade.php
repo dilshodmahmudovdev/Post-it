@@ -8,10 +8,10 @@
         >
             @csrf
             @method('PUT')
-            <label for="comment" class="fw-semibold">
-                Izohni yangilash:
-            </label>
-            <div class="my-border-top mt-1"></div>
+            <h4>
+                Izohni yangilash
+            </h4>
+            <div class="my-border-top mb-3"></div>
 
 
             <div class="d-flex gap-2 mt-3 align-items-end">

@@ -64,5 +64,7 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('posts.comments', CommentController::class)->shallow();
 
+    Route::patch('/settings', [ProfileController::class, 'update'])->name('profile.update');
+
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 });

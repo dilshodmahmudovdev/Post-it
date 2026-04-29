@@ -9,16 +9,25 @@
 
                     @if(Auth::check())
                         <div class="dropdown nav-dropdown mt-3">
-                            <button class="border rounded-5 p-1 bg-light" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <button class="border rounded-5 p-1 bg-light bg-opacity-50" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <div class="d-flex align-items-center">
+                                    @if(auth()->user()->profile_photo_path)
                                     <img src="https://thumbs.dreamstime.com/b/your-profile-text-office-desk-computer-technology-high-note-pad-electronic-devices-paper-wood-table-above-85616599.jpg" alt="" class="account-image">
-                                    <small class="account-name">{{ Auth::user()->email }}</small>
+                                    @else
+                                        <div class="account-icon">
+                                            <i class="bi bi-person-fill"></i>
+                                        </div>
+                                    @endif
+                                    <small class="account-name">{{ auth()->user()->email }}</small>
                                 </div>
                             </button>
                             <ul class="dropdown-menu my-shadow p-0">
                                 <form action="{{ route('logout') }}" method="POST">
                                     @csrf
-                                    <button class="text-danger bg-white py-1 rounded-2 border-0 w-100">Chiqib ketish <i class="bi bi-box-arrow-right"></i></button>
+                                    <button class="text-danger fw-semibold bg-white py-1 rounded-2 border-0 w-100">
+                                        <small>Chiqib ketish</small>
+                                        <i class="bi bi-box-arrow-right"></i>
+                                    </button>
                                 </form>
                             </ul>
                         </div>

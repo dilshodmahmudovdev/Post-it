@@ -1,7 +1,7 @@
 <div class="col-xl-6 px-1 mt-2">
     <div class="rounded-3 my-border my-shadow">
 
-        <div class="p-2">
+        <div class="px-2 pt-1 pb-3">
 
             <div class="post-img-on">
                 <img src="{{ asset('storage/' . $post->img_url) }}" alt="" class="post-img">

@@ -9,8 +9,8 @@
         >
             @csrf
 
-            <h3 class="mt-0">Post yaratish.</h3>
-            <div class="border-top mb-3"></div>
+            <h4 class="mt-0">Post yaratish.</h4>
+            <div class="my-border-top mb-3"></div>
 
             <label for="image" class="my-2 fw-semibold">
                 Rasm yuklash:

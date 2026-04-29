@@ -13,11 +13,23 @@
     border-radius: 50%;
     margin-right: 5px;
 }
+.account-icon{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1px solid #6c757d;
+    margin-right: 5px;
+}
+.account-icon i{
+    color: #6c757d;
+    font-size: 18px;
+}
 .account-name{
     max-width: 100px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    color: #515356;
 }
 .card-image-on{
     width: 100%;
