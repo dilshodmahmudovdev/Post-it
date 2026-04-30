@@ -1,9 +1,15 @@
 <div class="my-shadow rounded-3 bg-white p-3 pt-2 mb-3 border">
     <div class="d-flex justify-content-between">
-        <a href="{{ route('posts.create') }}" class="d-flex align-items-center text-decoration-none">
-            <div class="profile-image text-secondary fs-2 rounded-5">
-                <i class="bi bi-person-circle"></i>
-            </div>
+        <a href="{{ route('profiles', $post->user) }}" class="d-flex align-items-center text-decoration-none">
+            @if($post->user->profile_photo_path)
+                <div class="card-profile-image-on mt-0">
+                    <img src="{{ asset('storage/' . $post->user->profile_photo_path) }}" alt="" class="card-profile-image">
+                </div>
+            @else
+                <div class="text-secondary fs-2 rounded-5">
+                    <i class="bi bi-person-circle"></i>
+                </div>
+            @endif
             <div class="mx-2">
                 <small class="text-secondary d-block">{{ $post->user->full_name }}</small>
                 <small class="text-secondary d-block">{{ $post->user->email }}</small>

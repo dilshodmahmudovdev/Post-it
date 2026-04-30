@@ -15,9 +15,9 @@ use App\Http\Controllers\CommentController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::get('/profiles/{id}', function ($id) {
-    return "bu sahifa mamnashu profilniki: " . $id;
-})->name('profiles');
+Route::get('/profiles/{user}', [ProfileController::class, 'show'])->name('profiles');
+Route::get('/profiles/{user}/media', [ProfileController::class, 'showMedia'])->name('profile.media');
+Route::post('/profiles/{user}', [ProfileController::class, 'follow'])->name('profile.follow');
 
 /*
 |--------------------------------------------------------------------------
@@ -48,6 +48,7 @@ Route::middleware('guest')->group(function () {
 Route::middleware('auth')->group(function () {
 
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
+    Route::get('/profile/media', [ProfileController::class, 'showMyMedia'])->name('profile.my.media');
 
     Route::get('/notifications', function () {
         return view('pages.notifications.index');

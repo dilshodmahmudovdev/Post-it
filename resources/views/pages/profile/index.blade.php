@@ -24,28 +24,40 @@
     </div>
 
     <div class="profile-data px-3">
-        <h5 class="full-name">
-            {{ $user->full_name }}
-        </h5>
+        <div>
+            <h5 class="full-name">
+                {{ $user->full_name }}
+            </h5>
 
-        <p class="email">
-            {{ $user->email }}
-        </p>
+            <p class="email">
+                {{ $user->email }}
+            </p>
 
-        @if($user->bio)
+            @if($user->bio)
 
-            <div class="dropdown mb-3">
-                <div class="description-btn" data-bs-toggle="dropdown" aria-expanded="false">
-                    Bio<i class="bi bi-chevron-right"></i>
+                <div class="dropdown mb-3">
+                    <div class="description-btn" data-bs-toggle="dropdown" aria-expanded="false">
+                        Bio<i class="bi bi-chevron-right"></i>
+                    </div>
+                    <div class="dropdown-menu bg-light bg-white shadow p-2 w-50">
+                        <small>
+                            {{ $user->bio }}
+                        </small>
+                    </div>
                 </div>
-                <div class="dropdown-menu bg-light bg-white shadow p-2 w-50">
-                    <small>
-                        {{ $user->bio }}
-                    </small>
-                </div>
-            </div>
-        @endif
+            @endif
+        </div>
 
+{{-- Follow feature coming soon --}}
+
+        @auth
+            @if($user->id !== auth()->id())
+                <form action="{{ route('profile.follow', $user)}}" method="POST">
+                    @csrf
+                    <button disabled class="btn btn-dark btn-sm follow-btn">Obuna bo'lish + <small>(tez orada)</small></button>
+                </form>
+            @endif
+        @endauth
     </div>
 
     <div class="px-3 mb-0">
@@ -69,7 +81,12 @@
                 @endforelse
             </div>
         </div>
-        <div class="d-flex justify-content-center mt-3">
+
+        <div class="px-2">
+            <div class="my-border-top my-3"></div>
+        </div>
+
+        <div class="d-flex justify-content-center">
             {{$posts->links()}}
         </div>
     </div>

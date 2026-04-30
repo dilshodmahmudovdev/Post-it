@@ -5,9 +5,12 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ProfileUpdateRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use App\User;
 
 class ProfileController extends Controller
 {
+
+    // == OWN PROFILE METHODS == //
 
     public function index()
     {
@@ -15,6 +18,33 @@ class ProfileController extends Controller
         $posts = Auth::user()->posts()->latest()->paginate(4);
         return view('pages.profile.index', compact(['posts', 'user']));
     }
+
+    public function showMyMedia ()
+    {
+        $media = '';
+    }
+
+    public function follow (User $user)
+    {
+
+    }
+
+    // == OTHER PROFILE METHODS
+
+    public function show (User $user)
+    {
+        $posts = $user->posts()->latest()->paginate(4);
+        return view('pages.profile.index', compact(['user', 'posts']));
+    }
+
+    public function showMedia (User $user)
+    {
+        $media = '';
+    }
+
+    // == === == //
+
+
 
     public function update(ProfileUpdateRequest $request)
     {

@@ -12,7 +12,7 @@
                             <button class="border rounded-5 p-1 bg-light bg-opacity-50" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <div class="d-flex align-items-center">
                                     @if(auth()->user()->profile_photo_path)
-                                    <img src="https://thumbs.dreamstime.com/b/your-profile-text-office-desk-computer-technology-high-note-pad-electronic-devices-paper-wood-table-above-85616599.jpg" alt="" class="account-image">
+                                    <img src="{{ asset('storage/'. auth()->user()->profile_photo_path) }}" alt="" class="account-image">
                                     @else
                                         <div class="account-icon">
                                             <i class="bi bi-person-fill"></i>

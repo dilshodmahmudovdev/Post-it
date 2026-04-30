@@ -53,7 +53,7 @@ body{
     height: auto;
 }
 .avatar-out{
-    margin-top: -45px;
+    margin-top: -60px;
 }
 .avatar{
     border-radius: 50%;
@@ -69,11 +69,6 @@ body{
     /*background-position: center;*/
     overflow: hidden;
 }
-.avatar i{
-    font-size: 50px;
-    margin-bottom: 10px;
-    color: #6c757d;
-}
 .avatar img{
     width: 100%;
     height: auto;
@@ -86,7 +81,9 @@ body{
     /*color: #323232;*/
 }
 .profile-data{
-    margin-top: -35px;
+    margin-top: -10px;
+    display: flex;
+    align-items: start;
 }
 .full-name{
     color: #3c3c3c;
@@ -124,6 +121,10 @@ body{
     margin-top: 7px;
     margin-bottom: 7px;
     font-size: 15px;
+}
+.follow-btn{
+    margin-top: 0;
+    margin-left: 10px;
 }
 .my-border{
     border: 1px solid #c1c1c1;
