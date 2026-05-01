@@ -75,7 +75,7 @@
                 @if($user->id !== auth()->id())
                     <form action="{{ route('profile.follow', $user)}}" method="POST">
                         @csrf
-                        @if(auth()->user()->following->contains($user->id))
+                        @if(auth()->user()->followings->contains($user->id))
                             <button class="btn btn-secondary btn-sm follow-btn">
                                 <small>Obunani bekor qilish <i class="bi bi-x-lg"></i></small>
                             </button>
@@ -95,7 +95,7 @@
         <div class="my-border-top"></div>
         <div class="d-flex">
             <a href="#" class="content-link active">Postlar</a>
-            <a href="#" class="content-link">Mediya</a>
+{{--            <a href="#" class="content-link">Mediya</a>--}}
         </div>
         <div class="my-border-top"></div>
     </div>

@@ -159,3 +159,20 @@
     transition: 0.1s all linear;
     background: #2d7cc6;
 }
+.followings-table-icon{
+    font-size: 35px;
+    margin-left: 10px;
+}
+.followings-table-photo{
+    width: 35px;
+    height: 35px;
+    border: 2px solid #2d7cc6;
+    margin-left: 10px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.followings-table-photo img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

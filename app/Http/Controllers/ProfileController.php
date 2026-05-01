@@ -33,15 +33,23 @@ class ProfileController extends Controller
             return back();
         }
 
-        if ($authUser->following()->where('user_id', $user->id)->exists()){
+        if ($authUser->followings()->where('user_id', $user->id)->exists()){
             //unfollow
-            $authUser->following()->detach($user->id);
+            $authUser->followings()->detach($user->id);
         }else{
             //follow
-            $authUser->following()->attach($user->id);
+            $authUser->followings()->attach($user->id);
         }
 
         return back();
+    }
+
+    public function showFollowings()
+    {
+        $user = Auth::user();
+
+        $followings = $user->followings()->latest()->paginate(10);
+        return view('pages.follow.index', compact('followings'));
     }
 
     // == OTHER PROFILE METHODS
@@ -52,10 +60,11 @@ class ProfileController extends Controller
         return view('pages.profile.index', compact(['user', 'posts']));
     }
 
-    public function showMedia (User $user)
-    {
-        $media = '';
-    }
+//    public function showMedia (User $user)
+//    {
+//        $media = '';
+//    }
+
 
     // == === == //
 

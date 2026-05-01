@@ -21,7 +21,7 @@ class CreateFollowersTable extends Migration
                 ->cascadeOnDelete();
 
             $table->foreignId('follower_id')
-                ->constrained('users')   // 🔥 ENG MUHIM FIX
+                ->constrained('users')
                 ->cascadeOnDelete();
 
             $table->timestamps();

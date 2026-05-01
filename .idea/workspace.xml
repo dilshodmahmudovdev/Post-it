@@ -11,12 +11,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a3c4b0bf-3c38-4778-855e-ae8b1612a19d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/views/pages/follow/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2026_02_15_134500_create_posts_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2026_02_15_134500_create_posts_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2026_05_01_050703_create_followers_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2026_05_01_050703_create_followers_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/components.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/components.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/sidebar.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/pages/profile/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/profile/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -324,7 +327,8 @@
       <workItem from="1777570256606" duration="3245000" />
       <workItem from="1777593489630" duration="4665000" />
       <workItem from="1777612940980" duration="589000" />
-      <workItem from="1777616367956" duration="2419000" />
+      <workItem from="1777616367956" duration="3136000" />
+      <workItem from="1777627178434" duration="4799000" />
     </task>
     <servers />
   </component>
@@ -372,9 +376,9 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="456" y="195" key="run.anything.popup/1600.-116.1280.984/0.0.1600.860@0.0.1600.860" timestamp="1775037788367" />
-    <state x="463" y="180" width="672" height="678" key="search.everywhere.popup" timestamp="1775417838655">
+    <state x="463" y="180" width="672" height="678" key="search.everywhere.popup" timestamp="1777631669704">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="463" y="180" width="672" height="678" key="search.everywhere.popup/1600.-116.1280.984/0.0.1600.860@0.0.1600.860" timestamp="1775417838655" />
+    <state x="463" y="180" width="672" height="678" key="search.everywhere.popup/1600.-116.1280.984/0.0.1600.860@0.0.1600.860" timestamp="1777631669704" />
   </component>
 </project>
