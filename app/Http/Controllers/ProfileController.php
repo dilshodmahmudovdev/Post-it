@@ -27,6 +27,21 @@ class ProfileController extends Controller
     public function follow (User $user)
     {
 
+        $authUser = Auth::user();
+
+        if ($authUser->id === $user->id){
+            return back();
+        }
+
+        if ($authUser->following()->where('user_id', $user->id)->exists()){
+            //unfollow
+            $authUser->following()->detach($user->id);
+        }else{
+            //follow
+            $authUser->following()->attach($user->id);
+        }
+
+        return back();
     }
 
     // == OTHER PROFILE METHODS
