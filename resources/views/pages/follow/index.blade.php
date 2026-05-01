@@ -5,7 +5,7 @@
     <div class="bg-white rounded-3 p-3 border my-shadow">
         <h4>Obunalar</h4>
         <div class="my-border-top mb-3"></div>
-        <table class="table table-striped  align-middle">
+        <table class="table table-hover align-middle">
             @forelse($followings as $following)
                 <tr>
                     <td>

@@ -15,6 +15,8 @@ use App\Http\Controllers\CommentController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
+Route::get('/search', [ProfileController::class, 'searchPage'])->name('search.page');
+Route::get('search/results', [ProfileController::class, 'search'])->name('search.results');
 Route::get('/profiles/{user}', [ProfileController::class, 'show'])->name('profiles');
 //Route::get('/profiles/{user}/media', [ProfileController::class, 'showMedia'])->name('profile.media');
 

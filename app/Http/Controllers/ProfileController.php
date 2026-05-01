@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use App\User;
@@ -50,6 +51,23 @@ class ProfileController extends Controller
 
         $followings = $user->followings()->latest()->paginate(10);
         return view('pages.follow.index', compact('followings'));
+    }
+
+    public function searchPage ()
+    {
+        return view('pages.search.index');
+    }
+
+    public function search(Request $request)
+    {
+        $query = $request->input('search');
+
+        $users = User::where(function ($q) use ($query) {
+            $q->where('full_name', 'like', "%{$query}%")
+                ->orWhere('email', 'like', "%{$query}%");
+        })->get();
+
+        return view('pages.search.index', compact('users', 'query'));
     }
 
     // == OTHER PROFILE METHODS
