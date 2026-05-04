@@ -5,6 +5,28 @@
     align-items: start;
     padding-top: 65px;
 }
+/* FAQAT 1199px va kichik */
+@media (max-width: 1199px) {
+
+    .sidebar {
+        display: block !important; /* bootstrapni sindiramiz */
+
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 260px;
+        height: 100vh;
+        background: #fff;
+        z-index: 1050;
+
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+    }
+
+    .sidebar.active {
+        transform: translateX(0);
+    }
+}
 .sidebar-card{
     width: 100%;
     height: auto;
